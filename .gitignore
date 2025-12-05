@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb~
+
+# Data
+data/raw/
+data/processed/
+*.csv
+*.xlsx
+
+# Outputs
+outputs/
+results/
+maps/
+*.png
+*.jpg
+*.jpeg
+
+# Environment
+.env
+.env.local
+credentials.json
+google-earth-engine-key.json
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Project-specific
+.google-earth-engine/
+*.log
+test_outputs/

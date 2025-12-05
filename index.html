@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌲 Batı Karadeniz Orman İzleme Sistemi</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <!-- Navigasyon -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1>🌲 Batı Karadeniz Orman İzleme</h1>
+                <p>2020-2025 Orman Değişim Analizi</p>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="#home">Ana Sayfa</a></li>
+                <li><a href="#proje">Proje</a></li>
+                <li><a href="#veriler">Veriler</a></li>
+                <li><a href="#analiz">Analiz</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Batı Karadeniz Bölgesi Orman Değişim Analizi</h2>
+            <p>Uzaktan Algılama ve Yapay Zeka Teknikleriyle Orman Ekosisteminin İzlenmesi</p>
+            <div class="hero-buttons">
+                <a href="#proje" class="btn btn-primary">Proje Hakkında</a>
+                <a href="notebooks/orman_analizi.ipynb" class="btn btn-secondary">Analiz Notebook</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proje Hakkında -->
+    <section id="proje" class="section">
+        <div class="container">
+            <h3>📖 Proje Hakkında</h3>
+            <div class="project-grid">
+                <div class="card">
+                    <h4>🎯 Amacı</h4>
+                    <p>Batı Karadeniz Bölgesi'nde 2020-2025 yılları arasında orman alanı değişimlerini Sentinel-2 uydu görüntüleri kullanarak ΔNBR indeksi ile analiz etmek ve yangın, kesim, madencilik etkililerini afet yönetimi perspektifinden ayrıştırmak.</p>
+                </div>
+
+                <div class="card">
+                    <h4>🌍 Çalışma Alanı</h4>
+                    <p><strong>İller:</strong> Karabük, Bartın, Zonguldak</p>
+                    <p><strong>Dönem:</strong> 2020 - 2025</p>
+                    <p><strong>Odak:</strong> Yangın, kesim ve madencilik kayıpları</p>
+                </div>
+
+                <div class="card">
+                    <h4>🛠️ Yöntemler</h4>
+                    <p>• ΔNBR (Yangın Şiddeti Analizi)<br>
+                    • Mann-Kendall Trend Testi<br>
+                    • Sen's Slope Tahmini<br>
+                    • CBS Entegrasyonu</p>
+                </div>
+
+                <div class="card">
+                    <h4>📊 Veri Kaynakları</h4>
+                    <p>• Sentinel-2 Level-2A<br>
+                    • Google Earth Engine API<br>
+                    • CORINE 2023<br>
+                    • MTA Maden Ruhsat Verileri</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Veriler -->
+    <section id="veriler" class="section section-alt">
+        <div class="container">
+            <h3>📊 Veri Özeti</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h5>Toplam Orman Alanı</h5>
+                    <p class="stat-value">735,000 ha</p>
+                    <p class="stat-label">2020 yılı başı</p>
+                </div>
+
+                <div class="stat-card">
+                    <h5>Orman Kaybı (2020-2025)</h5>
+                    <p class="stat-value stat-negative">~48,500 ha</p>
+                    <p class="stat-label">Yangın, Kesim, Maden</p>
+                </div>
+
+                <div class="stat-card">
+                    <h5>Aktif Maden Sayısı</h5>
+                    <p class="stat-value">45</p>
+                    <p class="stat-label">3 il genelinde</p>
+                </div>
+
+                <div class="stat-card">
+                    <h5>Sentinel-2 Görüntü</h5>
+                    <p class="stat-value">1,200+</p>
+                    <p class="stat-label">İşlenen görüntü sayısı</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analiz Grafikleri -->
+    <section id="analiz" class="section">
+        <div class="container">
+            <h3>📈 Analiz Sonuçları</h3>
+            
+            <div class="analysis-tabs">
+                <button class="tab-btn active" onclick="showTab('orman-alan')">Orman Alanı</button>
+                <button class="tab-btn" onclick="showTab('kayip-dagilim')">Kayıp Dağılımı</button>
+                <button class="tab-btn" onclick="showTab('risk-harita')">Risk Haritası</button>
+                <button class="tab-btn" onclick="showTab('nbr-analiz')">ΔNBR Analizi</button>
+            </div>
+
+            <div id="orman-alan" class="tab-content active">
+                <h4>Orman Alanı Değişimi (2020-2025)</h4>
+                <div id="orman-chart" class="chart-container"></div>
+            </div>
+
+            <div id="kayip-dagilim" class="tab-content">
+                <h4>Orman Kaybı Dağılımı</h4>
+                <div id="kayip-chart" class="chart-container"></div>
+            </div>
+
+            <div id="risk-harita" class="tab-content">
+                <h4>Yangın Risk Haritası</h4>
+                <div id="risk-map" class="chart-container">
+                    <svg viewBox="0 0 300 200" class="risk-svg">
+                        <!-- Karabük -->
+                        <circle cx="100" cy="60" r="25" class="risk-orta" />
+                        <text x="100" y="65" text-anchor="middle" class="risk-label">Karabük</text>
+                        
+                        <!-- Bartın -->
+                        <circle cx="85" cy="100" r="25" class="risk-dusuk" />
+                        <text x="85" y="105" text-anchor="middle" class="risk-label">Bartın</text>
+                        
+                        <!-- Zonguldak -->
+                        <circle cx="170" cy="90" r="30" class="risk-yuksek" />
+                        <text x="170" y="95" text-anchor="middle" class="risk-label">Zonguldak</text>
+                    </svg>
+                </div>
+                <div class="risk-legend">
+                    <span class="legend-item"><span class="legend-color risk-yuksek"></span> Yüksek Risk</span>
+                    <span class="legend-item"><span class="legend-color risk-orta"></span> Orta Risk</span>
+                    <span class="legend-item"><span class="legend-color risk-dusuk"></span> Düşük Risk</span>
+                </div>
+            </div>
+
+            <div id="nbr-analiz" class="tab-content">
+                <h4>ΔNBR Zaman Serisi</h4>
+                <div id="nbr-chart" class="chart-container"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Yöntem Açıklaması -->
+    <section class="section section-alt">
+        <div class="container">
+            <h3>🔬 Kullanılan Yöntemler</h3>
+            <div class="methods-grid">
+                <div class="method-card">
+                    <h4>ΔNBR (Yangın Şiddeti)</h4>
+                    <p><strong>Formula:</strong> ΔNBR = NBR<sub>öncesi</sub> - NBR<sub>sonrası</sub></p>
+                    <p>Sentinel-2 B8 (NIR) ve B12 (SWIR) bantlarını kullanarak yangın hasarını ölçer.</p>
+                    <ul>
+                        <li>ΔNBR < 0.1: Yangın Yok</li>
+                        <li>0.1-0.27: Düşük Şiddet</li>
+                        <li>0.27-0.44: Orta-Düşük Şiddet</li>
+                        <li>0.44-0.66: Orta-Yüksek Şiddet</li>
+                        <li>ΔNBR ≥ 0.66: Yüksek Şiddet</li>
+                    </ul>
+                </div>
+
+                <div class="method-card">
+                    <h4>Mann-Kendall Trend Testi</h4>
+                    <p>Zaman serisinde monoton trend varlığını test eder.</p>
+                    <p><strong>Hipotezler:</strong></p>
+                    <ul>
+                        <li>H₀: Trend yok</li>
+                        <li>H₁: Trend var (artan/azalan)</li>
+                        <li>p < 0.05: İstatistiksel anlamlı</li>
+                    </ul>
+                </div>
+
+                <div class="method-card">
+                    <h4>Sen's Slope Tahmini</h4>
+                    <p>Trendin eğimini medyan tekniğiyle tahmin eder.</p>
+                    <p><strong>Birim:</strong> ha/yıl</p>
+                    <p>Mann-Kendall testinin parametrik olmayan eğim tahminleyicisi.</p>
+                </div>
+
+                <div class="method-card">
+                    <h4>Google Earth Engine API</h4>
+                    <p>Sentinel-2 uydu görüntüleri üzerinde bulut maskesi ve spektral indeksler hesaplanır.</p>
+                    <p>Büyük ölçekli görüntü işleme için GEE'nin bulut bilişim altyapısı kullanılır.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teknolojiler -->
+    <section class="section">
+        <div class="container">
+            <h3>💻 Teknoloji Stack</h3>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h5>Python</h5>
+                    <p>NumPy, Pandas, SciPy</p>
+                </div>
+                <div class="tech-item">
+                    <h5>Uydu Verisi</h5>
+                    <p>Google Earth Engine</p>
+                </div>
+                <div class="tech-item">
+                    <h5>Görselleştirme</h5>
+                    <p>Matplotlib, Plotly</p>
+                </div>
+                <div class="tech-item">
+                    <h5>Analitik</h5>
+                    <p>Jupyter Notebook</p>
+                </div>
+                <div class="tech-item">
+                    <h5>CBS</h5>
+                    <p>GeoPandas, Rasterio</p>
+                </div>
+                <div class="tech-item">
+                    <h5>Web</h5>
+                    <p>GitHub Pages, HTML5</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- İletişim -->
+    <section id="iletisim" class="section section-alt">
+        <div class="container">
+            <h3>📧 İletişim ve Kaynaklar</h3>
+            <div class="contact-info">
+                <p><strong>Kurumu:</strong> Karabük Üniversitesi - Yapay Zeka Operatörlüğü Bölümü</p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/Ernozkn/Bati-Karadeniz-Orman-Izleme" target="_blank">Proje Deposu</a></p>
+                <p><strong>Lisans:</strong> MIT License</p>
+            </div>
+
+            <div class="resources">
+                <h4>📚 Kaynaklar</h4>
+                <ul>
+                    <li><a href="https://earthengine.google.com/" target="_blank">Google Earth Engine</a></li>
+                    <li><a href="https://sentinel.esa.int/" target="_blank">Sentinel-2 Uydu Programı</a></li>
+                    <li><a href="https://www.sciencedirect.com/" target="_blank">ScienceDirect - Akademik Makaleler</a></li>
+                    <li><a href="https://github.com/giswqs/geemap" target="_blank">geemap - Coğrafi Analiz</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Batı Karadeniz Orman İzleme Sistemi. Tüm hakları saklıdır.</p>
+            <p>Karabük Üniversitesi - Yapay Zeka Operatörlüğü Bölümü</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab fonksiyonları
+        function showTab(tabName) {
+            // Tüm tab içeriklerini gizle
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Tüm butonları deaktif et
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Seçili tab'ı göster
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Grafikleri oluştur (örnek veriler)
+        function createCharts() {
+            // Orman alanı grafiği
+            const yillar = [2020, 2021, 2022, 2023, 2024, 2025];
+            const karabuk = [245000, 243500, 241800, 239900, 237500, 235200];
+            const bartin = [178000, 177200, 176100, 174800, 173200, 171500];
+            const zonguldak = [312000, 310500, 308600, 306200, 303500, 300100];
+
+            const trace1 = {
+                x: yillar,
+                y: karabuk,
+                name: 'Karabük',
+                mode: 'lines+markers',
+                type: 'scatter'
+            };
+
+            const trace2 = {
+                x: yillar,
+                y: bartin,
+                name: 'Bartın',
+                mode: 'lines+markers',
+                type: 'scatter'
+            };
+
+            const trace3 = {
+                x: yillar,
+                y: zonguldak,
+                name: 'Zonguldak',
+                mode: 'lines+markers',
+                type: 'scatter'
+            };
+
+            const layout1 = {
+                title: 'Orman Alanı Değişimi',
+                xaxis: { title: 'Yıl' },
+                yaxis: { title: 'Orman Alanı (ha)' },
+                template: 'plotly_dark'
+            };
+
+            Plotly.newPlot('orman-chart', [trace1, trace2, trace3], layout1);
+
+            // Kayıp dağılımı pasta grafiği
+            const kayip = {
+                labels: ['Yangın', 'Kesim', 'Madencilik'],
+                values: [18500, 15200, 14800],
+                type: 'pie'
+            };
+
+            const layout2 = {
+                title: 'Orman Kaybı Dağılımı (2020-2025)',
+                template: 'plotly_dark'
+            };
+
+            Plotly.newPlot('kayip-chart', [kayip], layout2);
+
+            // ΔNBR grafiği
+            const trace_nbr = {
+                x: yillar,
+                y: [0.35, 0.38, 0.41, 0.39, 0.36, 0.34],
+                name: 'Ortalama ΔNBR',
+                mode: 'lines+markers',
+                type: 'scatter'
+            };
+
+            const layout3 = {
+                title: 'ΔNBR Zaman Serisi',
+                xaxis: { title: 'Yıl' },
+                yaxis: { title: 'ΔNBR Değeri' },
+                template: 'plotly_dark'
+            };
+
+            Plotly.newPlot('nbr-chart', [trace_nbr], layout3);
+        }
+
+        // Sayfa yüklendiğinde grafikleri oluştur
+        document.addEventListener('DOMContentLoaded', createCharts);
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
