@@ -14,7 +14,7 @@ import json
 import os
 
 from .config import (
-    ILLER, YILLAR, BASLANGIC_ORMAN_ALANLARI, 
+    ILLER, YILLAR, 
     IL_KOORDINATLARI, NBR_ESIK_DEGERLERI
 )
 

@@ -1,0 +1,27 @@
+{
+  "Karabük": {
+    "aktif_maden": 12,
+    "etki_alani_ha": 3500,
+    "tur": [
+      "Demir",
+      "Manganez"
+    ],
+    "rehabilite_alan_ha": 450
+  },
+  "Bartın": {
+    "aktif_maden": 8,
+    "etki_alani_ha": 2100,
+    "tur": [
+      "Taşkömürü"
+    ],
+    "rehabilite_alan_ha": 280
+  },
+  "Zonguldak": {
+    "aktif_maden": 25,
+    "etki_alani_ha": 8500,
+    "tur": [
+      "Taşkömürü"
+    ],
+    "rehabilite_alan_ha": 920
+  }
+}

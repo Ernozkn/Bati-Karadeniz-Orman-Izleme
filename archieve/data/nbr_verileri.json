@@ -1,0 +1,116 @@
+{
+  "Karabük": {
+    "2020": {
+      "nbr_oncesi": 0.5651,
+      "nbr_sonrasi": 0.4151,
+      "delta_nbr": 0.15,
+      "yangin_siddeti": "Düşük"
+    },
+    "2021": {
+      "nbr_oncesi": 0.5801,
+      "nbr_sonrasi": 0.4301,
+      "delta_nbr": 0.15,
+      "yangin_siddeti": "Düşük"
+    },
+    "2022": {
+      "nbr_oncesi": 0.6254,
+      "nbr_sonrasi": 0.4754,
+      "delta_nbr": 0.15,
+      "yangin_siddeti": "Düşük"
+    },
+    "2023": {
+      "nbr_oncesi": 0.6536,
+      "nbr_sonrasi": 0.5036,
+      "delta_nbr": 0.15,
+      "yangin_siddeti": "Düşük"
+    },
+    "2024": {
+      "nbr_oncesi": 0.5727,
+      "nbr_sonrasi": 0.4227,
+      "delta_nbr": 0.15,
+      "yangin_siddeti": "Düşük"
+    },
+    "2025": {
+      "nbr_oncesi": 0.6096,
+      "nbr_sonrasi": 0.4596,
+      "delta_nbr": 0.15,
+      "yangin_siddeti": "Düşük"
+    }
+  },
+  "Bartın": {
+    "2020": {
+      "nbr_oncesi": 0.5434,
+      "nbr_sonrasi": 0.3934,
+      "delta_nbr": 0.15,
+      "yangin_siddeti": "Düşük"
+    },
+    "2021": {
+      "nbr_oncesi": 0.5147,
+      "nbr_sonrasi": 0.3647,
+      "delta_nbr": 0.15,
+      "yangin_siddeti": "Düşük"
+    },
+    "2022": {
+      "nbr_oncesi": 0.5984,
+      "nbr_sonrasi": 0.4484,
+      "delta_nbr": 0.15,
+      "yangin_siddeti": "Düşük"
+    },
+    "2023": {
+      "nbr_oncesi": 0.7079,
+      "nbr_sonrasi": 0.5579,
+      "delta_nbr": 0.15,
+      "yangin_siddeti": "Düşük"
+    },
+    "2024": {
+      "nbr_oncesi": 0.5881,
+      "nbr_sonrasi": 0.4381,
+      "delta_nbr": 0.15,
+      "yangin_siddeti": "Düşük"
+    },
+    "2025": {
+      "nbr_oncesi": 0.613,
+      "nbr_sonrasi": 0.463,
+      "delta_nbr": 0.15,
+      "yangin_siddeti": "Düşük"
+    }
+  },
+  "Zonguldak": {
+    "2020": {
+      "nbr_oncesi": 0.5647,
+      "nbr_sonrasi": 0.4147,
+      "delta_nbr": 0.15,
+      "yangin_siddeti": "Düşük"
+    },
+    "2021": {
+      "nbr_oncesi": 0.2632,
+      "nbr_sonrasi": 0.1132,
+      "delta_nbr": 0.15,
+      "yangin_siddeti": "Orta"
+    },
+    "2022": {
+      "nbr_oncesi": 0.5931,
+      "nbr_sonrasi": 0.4431,
+      "delta_nbr": 0.15,
+      "yangin_siddeti": "Düşük"
+    },
+    "2023": {
+      "nbr_oncesi": 0.6957,
+      "nbr_sonrasi": 0.5457,
+      "delta_nbr": 0.15,
+      "yangin_siddeti": "Düşük"
+    },
+    "2024": {
+      "nbr_oncesi": 0.5118,
+      "nbr_sonrasi": 0.3618,
+      "delta_nbr": 0.15,
+      "yangin_siddeti": "Düşük"
+    },
+    "2025": {
+      "nbr_oncesi": 0.3005,
+      "nbr_sonrasi": 0.1505,
+      "delta_nbr": 0.15,
+      "yangin_siddeti": "Orta"
+    }
+  }
+}

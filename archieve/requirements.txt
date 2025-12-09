@@ -18,6 +18,10 @@ shapely>=1.7.0
 
 # Google Earth Engine API
 earthengine-api>=0.1.300
+
+# Progress Bar
+tqdm>=4.60.0
+ipywidgets>=7.6.0
 geemap>=0.15.0
 
 # Jupyter & Notebooks

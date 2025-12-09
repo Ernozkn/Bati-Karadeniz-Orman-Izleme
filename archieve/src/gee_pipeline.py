@@ -84,6 +84,30 @@ class GEEYorumcusu:
             komsuluk["dogu"],
             komsuluk["kuzey"]
         ])
+
+    def il_siniri_getir(self, il_adi: str) -> ee.Geometry:
+        """
+        FAO GAUL veri setinden il sınırlarını getirir.
+        """
+        if not self.authenticated: return None
+        
+        # Türkçe karakter düzeltmesi
+        tr_map = {"ı": "i", "ğ": "g", "ü": "u", "ş": "s", "ö": "o", "ç": "c", 
+                  "İ": "I", "Ğ": "G", "Ü": "U", "Ş": "S", "Ö": "O", "Ç": "C"}
+        
+        gaul_adi = il_adi
+        for tr, eng in tr_map.items():
+            gaul_adi = gaul_adi.replace(tr, eng)
+            
+        try:
+            # FAO GAUL Level 1: İl sınırları
+            turkiye = ee.FeatureCollection("FAO/GAUL/2015/level1").filter(ee.Filter.eq('ADM0_NAME', 'Turkey'))
+            il_siniri = turkiye.filter(ee.Filter.eq('ADM1_NAME', gaul_adi))
+            
+            return il_siniri.geometry()
+        except Exception as e:
+            print(f"Sınır getirme hatası ({il_adi}): {e}")
+            return None
     
     def sentinel2_koleksiyonu_yukle(
         self,
@@ -119,7 +143,9 @@ class GEEYorumcusu:
     
     def bulut_maskesi_uygula(self, image: ee.Image) -> ee.Image:
         """
-        Sentinel-2 QA60 bandını kullanarak bulut maskesi uygula.
+        Sentinel-2 QA60 bandını kullanarak çok agresif bulut maskesi uygula.
+        QA60 bit 10: Cirrus, bit 11: Cloud
+        Ek olarak parlak piksel (bulut) ve karanlık piksel (gölge) tespiti.
         
         Args:
             image: Sentinel-2 görüntüsü
@@ -132,11 +158,57 @@ class GEEYorumcusu:
         
         qa = image.select('QA60')
         
-        # QA60 maskeleri
+        # QA60 maskeleri (Cirrus + Cloud)
         cirrus_mask = qa.bitwiseAnd(1 << 10).eq(0)
         cloud_mask = qa.bitwiseAnd(1 << 11).eq(0)
         
-        return image.updateMask(cirrus_mask).updateMask(cloud_mask)
+        # Parlak piksel tespiti (bulut genelde çok parlak)
+        b2 = image.select('B2').divide(10000)
+        b3 = image.select('B3').divide(10000)
+        b4 = image.select('B4').divide(10000)
+        bright_mask = b2.add(b3).add(b4).lt(0.7)  # Toplam yansıma düşük tut
+        
+        # Gölge tespiti (B8/B4 oranı düşük = gölge)
+        nir = image.select('B8').divide(10000)
+        red = image.select('B4').divide(10000)
+        shadow_mask = nir.divide(red.add(0.0001)).gt(1.5)  # Gölge oranı
+        
+        return image.updateMask(cirrus_mask).updateMask(cloud_mask).updateMask(bright_mask).updateMask(shadow_mask)
+    
+    def su_maskesi_uygula(self, image: ee.Image, ndwi_esik: float = 0.3, mndwi_esik: float = 0.3) -> ee.Image:
+        """
+        Su/kıyı alanlarını maskelemek için NDWI ve MNDWI indekslerini kullan.
+        
+        NDWI = (B8A - B11) / (B8A + B11)  -> Nem indeksi (su alanları >0.3)
+        MNDWI = (B3 - B11) / (B3 + B11)   -> Değiştirilmiş su indeksi (su alanları >0.3)
+        
+        Su maskeleme: NDWI > esik VEYA MNDWI > esik olan pikselleri maskele
+        
+        Args:
+            image: Sentinel-2 görüntüsü
+            ndwi_esik: NDWI eşik değeri (varsayılan 0.3)
+            mndwi_esik: MNDWI eşik değeri (varsayılan 0.3)
+            
+        Returns:
+            ee.Image: Su maskeleri uygulanmış görüntü
+        """
+        if not self.authenticated:
+            return None
+        
+        nir = image.select('B8A').divide(10000)
+        swir = image.select('B11').divide(10000)
+        green = image.select('B3').divide(10000)
+        
+        # NDWI: Nem indeksi (Normalized Difference Water Index)
+        ndwi = nir.subtract(swir).divide(nir.add(swir)).rename('NDWI')
+        
+        # MNDWI: Değiştirilmiş su indeksi (Modified NDWI) - Yeşil band kullanarak kıyı maskeleme
+        mndwi = green.subtract(swir).divide(green.add(swir)).rename('MNDWI')
+        
+        # Su maskesi: NDWI > esik VEYA MNDWI > esik olan alanları maskeleyerek çıkar
+        water_mask = ndwi.lt(ndwi_esik).And(mndwi.lt(mndwi_esik))
+        
+        return image.updateMask(water_mask)
     
     def nbr_hesapla(self, image: ee.Image) -> ee.Image:
         """
@@ -361,12 +433,18 @@ class GEEYorumcusu:
             orman_maskesi = ndvi.gt(0.3)
             
             pixel_area = ee.Image.pixelArea()
-            orman_alani = pixel_area.updateMask(orman_maskesi).reduceRegion(
+            stats = pixel_area.updateMask(orman_maskesi).reduceRegion(
                 reducer=ee.Reducer.sum(),
                 geometry=bolge,
                 scale=scale,
                 maxPixels=1e9
-            ).get('area')
+            )
+            
+            orman_alani = stats.get('area')
+            
+            # Eğer sonuç None ise (tamamen maskelenmişse) 0 döndür
+            if orman_alani is None:
+                return 0.0
             
             # Metrekareden hektara çevir
             return ee.Number(orman_alani).divide(10000).getInfo()
@@ -382,16 +460,44 @@ class GEEYorumcusu:
         
         try:
             nbr = image.normalizedDifference(['B8', 'B12'])
-            mean_nbr = nbr.reduceRegion(
+            stats = nbr.reduceRegion(
                 reducer=ee.Reducer.mean(),
                 geometry=bolge,
                 scale=scale,
                 maxPixels=1e9
-            ).get('nd')
+            )
             
+            mean_nbr = stats.get('nd')
+            
+            if mean_nbr is None:
+                return 0.0
+                
             return ee.Number(mean_nbr).getInfo()
         except:
             return 0.0
+
+    def get_thumbnail_url(self, image: ee.Image, bolge: ee.Geometry, dimensions: int = 512) -> str:
+        """
+        Görüntü için thumbnail URL'i oluştur (RGB).
+        """
+        if not self.authenticated: return ""
+        
+        # Görselleştirme parametreleri (RGB)
+        vis_params = {
+            'min': 0,
+            'max': 3000,
+            'bands': ['B4', 'B3', 'B2'],
+            'region': bolge,
+            'dimensions': dimensions,
+            'format': 'png',
+            'formatOptions': {'backgroundColor': '00000000'}  # Maskeli alanları transparan tut
+        }
+        
+        try:
+            return image.getThumbURL(vis_params)
+        except Exception as e:
+            print(f"Thumbnail URL hatası: {e}")
+            return ""
     
     def goruntu_indir(
         self,

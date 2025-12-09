@@ -1,0 +1,226 @@
+{
+  "Karabük": {
+    "2020": {
+      "toplam_alan": 319861.94,
+      "ndvi_mean": 0.5846,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 0
+    },
+    "2021": {
+      "toplam_alan": 308887.75,
+      "ndvi_mean": 0.5691,
+      "yangin_kaybi": 7681.93,
+      "kesim_kaybi": 1536.39,
+      "maden_kaybi": 768.19,
+      "dogal_artis": 0,
+      "net_degisim": -10974.19
+    },
+    "2022": {
+      "toplam_alan": 295900.48,
+      "ndvi_mean": 0.5445,
+      "yangin_kaybi": 9091.09,
+      "kesim_kaybi": 1818.22,
+      "maden_kaybi": 909.11,
+      "dogal_artis": 0,
+      "net_degisim": -12987.27
+    },
+    "2023": {
+      "toplam_alan": 311361.59,
+      "ndvi_mean": 0.5849,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 15461.11
+    },
+    "2024": {
+      "toplam_alan": 330761.42,
+      "ndvi_mean": 0.5989,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 19399.83
+    },
+    "2025": {
+      "toplam_alan": 310766.14,
+      "ndvi_mean": 0.5735,
+      "yangin_kaybi": 13996.7,
+      "kesim_kaybi": 2799.34,
+      "maden_kaybi": 1399.67,
+      "dogal_artis": 0,
+      "net_degisim": -19995.28
+    }
+  },
+  "Zonguldak": {
+    "2020": {
+      "toplam_alan": 280635.8,
+      "ndvi_mean": 0.6495,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 0
+    },
+    "2021": {
+      "toplam_alan": 257197.52,
+      "ndvi_mean": 0.6107,
+      "yangin_kaybi": 16406.79,
+      "kesim_kaybi": 3281.36,
+      "maden_kaybi": 1640.68,
+      "dogal_artis": 0,
+      "net_degisim": -23438.27
+    },
+    "2022": {
+      "toplam_alan": 245398.29,
+      "ndvi_mean": 0.5803,
+      "yangin_kaybi": 8259.47,
+      "kesim_kaybi": 1651.89,
+      "maden_kaybi": 825.95,
+      "dogal_artis": 0,
+      "net_degisim": -11799.24
+    },
+    "2023": {
+      "toplam_alan": 272081.7,
+      "ndvi_mean": 0.6369,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 26683.41
+    },
+    "2024": {
+      "toplam_alan": 273630.68,
+      "ndvi_mean": 0.6368,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 1548.98
+    },
+    "2025": {
+      "toplam_alan": 293523.97,
+      "ndvi_mean": 0.6546,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 19893.3
+    }
+  },
+  "Bartın": {
+    "2020": {
+      "toplam_alan": 180171.54,
+      "ndvi_mean": 0.6506,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 0
+    },
+    "2021": {
+      "toplam_alan": 148662.91,
+      "ndvi_mean": 0.5689,
+      "yangin_kaybi": 22056.04,
+      "kesim_kaybi": 4411.21,
+      "maden_kaybi": 2205.6,
+      "dogal_artis": 0,
+      "net_degisim": -31508.63
+    },
+    "2022": {
+      "toplam_alan": 143471.91,
+      "ndvi_mean": 0.5087,
+      "yangin_kaybi": 3633.7,
+      "kesim_kaybi": 726.74,
+      "maden_kaybi": 363.37,
+      "dogal_artis": 0,
+      "net_degisim": -5191.01
+    },
+    "2023": {
+      "toplam_alan": 164504.14,
+      "ndvi_mean": 0.5965,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 21032.23
+    },
+    "2024": {
+      "toplam_alan": 183270.05,
+      "ndvi_mean": 0.6273,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 18765.91
+    },
+    "2025": {
+      "toplam_alan": 183288.26,
+      "ndvi_mean": 0.6781,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 18.21
+    }
+  },
+  "Bati_Karadeniz_Bolgesi": {
+    "2020": {
+      "toplam_alan": 1107442.02,
+      "ndvi_mean": 0.4557,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 0
+    },
+    "2021": {
+      "toplam_alan": 1009606.61,
+      "ndvi_mean": 0.4192,
+      "yangin_kaybi": 68484.79,
+      "kesim_kaybi": 13696.96,
+      "maden_kaybi": 6848.48,
+      "dogal_artis": 0,
+      "net_degisim": -97835.42
+    },
+    "2022": {
+      "toplam_alan": 960196.46,
+      "ndvi_mean": 0.3938,
+      "yangin_kaybi": 34587.11,
+      "kesim_kaybi": 6917.42,
+      "maden_kaybi": 3458.71,
+      "dogal_artis": 0,
+      "net_degisim": -49410.15
+    },
+    "2023": {
+      "toplam_alan": 1056285.57,
+      "ndvi_mean": 0.4466,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 96089.12
+    },
+    "2024": {
+      "toplam_alan": 1114712.2,
+      "ndvi_mean": 0.4578,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 58426.63
+    },
+    "2025": {
+      "toplam_alan": 1113997.18,
+      "ndvi_mean": 0.4609,
+      "yangin_kaybi": 500.52,
+      "kesim_kaybi": 100.1,
+      "maden_kaybi": 50.05,
+      "dogal_artis": 0,
+      "net_degisim": -715.02
+    }
+  }
+}

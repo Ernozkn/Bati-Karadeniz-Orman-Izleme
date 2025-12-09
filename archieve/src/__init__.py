@@ -40,8 +40,8 @@ __license__ = "MIT"
 
 try:
     from .config import (
-        ILLER, YILLAR, IL_KOORDINATLARI, 
-        BASLANGIC_ORMAN_ALANLARI, RENKLER
+        ILLER, YILLAR, IL_KOORDINATLARI,
+        RENKLER
     )
     from .veri_islemleri import VeriYoneticisi, veri_yukle_veya_olustur
     from .analiz import OrmanAnalizi, MannKendallSonuc, NBRAnalizSonuc
@@ -49,7 +49,7 @@ try:
     from .gee_pipeline import GEEYorumcusu, Goruntu_Isleme_Pipeline
     
     __all__ = [
-        'ILLER', 'YILLAR', 'IL_KOORDINATLARI', 'BASLANGIC_ORMAN_ALANLARI', 'RENKLER',
+        'ILLER', 'YILLAR', 'IL_KOORDINATLARI', 'RENKLER',
         'VeriYoneticisi', 'veri_yukle_veya_olustur',
         'OrmanAnalizi', 'MannKendallSonuc', 'NBRAnalizSonuc',
         'Gorsellestiric',

@@ -1,0 +1,13 @@
+{
+  "Bati_Karadeniz_Bolgesi": {
+    "aktif_maden": 67,
+    "etki_alani_ha": 21250,
+    "tur": [
+      "Taşkömürü",
+      "Demir",
+      "Bakır",
+      "Linyit"
+    ],
+    "rehabilite_alan_ha": 2500
+  }
+}

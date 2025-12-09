@@ -11,21 +11,13 @@ PROJE_ADI = "Batı Karadeniz Bölgesi Orman Değişim Analizi"
 PROJE_VERSIYON = "1.0.0"
 
 # Bölge Bilgileri
-ILLER = ["Karabük", "Bartın", "Zonguldak"]
+ILLER = ["Karabük", "Zonguldak", "Bartın"]
 YILLAR = list(range(2020, 2026))
 
 # İl Koordinatları (Merkez Noktaları - WGS84)
+# Tüm Batı Karadeniz Bölgesi (Karabük, Zonguldak, Bartın) için ortak merkez noktası
 IL_KOORDINATLARI = {
-    "Karabük": {"lat": 41.2, "lon": 32.6},
-    "Bartın": {"lat": 41.6, "lon": 32.3},
-    "Zonguldak": {"lat": 41.4, "lon": 31.8}
-}
-
-# Başlangıç Orman Alanları (Hektar)
-BASLANGIC_ORMAN_ALANLARI = {
-    "Karabük": 245000,
-    "Bartın": 178000,
-    "Zonguldak": 312000
+    "Bati_Karadeniz_Bolgesi": {"lat": 41.430, "lon": 32.252}
 }
 
 # ΔNBR Yangın Şiddeti Sınıflandırması

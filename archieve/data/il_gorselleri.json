@@ -1,0 +1,14 @@
+{
+  "Karabük": {
+    "maps_link": "https://www.google.com/maps/@41.2,32.6,11z",
+    "image_path": "c:\\Users\\ernoz\\Documents\\GitHub\\Bati-Karadeniz-Orman-Izleme\\outputs\\images\\Karabük_2025_satellite.png"
+  },
+  "Bartın": {
+    "maps_link": "https://www.google.com/maps/@41.6,32.3,11z",
+    "image_path": "c:\\Users\\ernoz\\Documents\\GitHub\\Bati-Karadeniz-Orman-Izleme\\outputs\\images\\Bartın_2025_satellite.png"
+  },
+  "Zonguldak": {
+    "maps_link": "https://www.google.com/maps/@41.4,31.8,11z",
+    "image_path": "c:\\Users\\ernoz\\Documents\\GitHub\\Bati-Karadeniz-Orman-Izleme\\outputs\\images\\Zonguldak_2025_satellite.png"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "Karabük": {
+    "2020": {
+      "toplam_alan": 99188.58,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 0
+    },
+    "2021": {
+      "toplam_alan": 101672.98,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 2484.39
+    },
+    "2022": {
+      "toplam_alan": 107167.36,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 5494.38
+    },
+    "2023": {
+      "toplam_alan": 107590.21,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 422.85
+    },
+    "2024": {
+      "toplam_alan": 101632.58,
+      "yangin_kaybi": 4170.34,
+      "kesim_kaybi": 834.07,
+      "maden_kaybi": 417.03,
+      "dogal_artis": 0,
+      "net_degisim": -5957.63
+    },
+    "2025": {
+      "toplam_alan": 102501.51,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 868.93
+    }
+  },
+  "Bartın": {
+    "2020": {
+      "toplam_alan": 36521.91,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 0
+    },
+    "2021": {
+      "toplam_alan": 35169.8,
+      "yangin_kaybi": 946.47,
+      "kesim_kaybi": 189.29,
+      "maden_kaybi": 94.65,
+      "dogal_artis": 0,
+      "net_degisim": -1352.1
+    },
+    "2022": {
+      "toplam_alan": 14670.19,
+      "yangin_kaybi": 14349.73,
+      "kesim_kaybi": 2869.95,
+      "maden_kaybi": 1434.97,
+      "dogal_artis": 0,
+      "net_degisim": -20499.62
+    },
+    "2023": {
+      "toplam_alan": 15008.31,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 338.12
+    },
+    "2024": {
+      "toplam_alan": 36469.76,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 21461.45
+    },
+    "2025": {
+      "toplam_alan": 13602.9,
+      "yangin_kaybi": 16006.8,
+      "kesim_kaybi": 3201.36,
+      "maden_kaybi": 1600.68,
+      "dogal_artis": 0,
+      "net_degisim": -22866.86
+    }
+  },
+  "Zonguldak": {
+    "2020": {
+      "toplam_alan": 47959.94,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 0
+    },
+    "2021": {
+      "toplam_alan": 4757.66,
+      "yangin_kaybi": 30241.59,
+      "kesim_kaybi": 6048.32,
+      "maden_kaybi": 3024.16,
+      "dogal_artis": 0,
+      "net_degisim": -43202.28
+    },
+    "2022": {
+      "toplam_alan": 59298.6,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 54540.94
+    },
+    "2023": {
+      "toplam_alan": 48215.03,
+      "yangin_kaybi": 7758.5,
+      "kesim_kaybi": 1551.7,
+      "maden_kaybi": 775.85,
+      "dogal_artis": 0,
+      "net_degisim": -11083.57
+    },
+    "2024": {
+      "toplam_alan": 4558.64,
+      "yangin_kaybi": 30559.47,
+      "kesim_kaybi": 6111.89,
+      "maden_kaybi": 3055.95,
+      "dogal_artis": 0,
+      "net_degisim": -43656.39
+    },
+    "2025": {
+      "toplam_alan": 4606.55,
+      "yangin_kaybi": 0,
+      "kesim_kaybi": 0.0,
+      "maden_kaybi": 0.0,
+      "dogal_artis": 0,
+      "net_degisim": 47.9
+    }
+  }
+}
